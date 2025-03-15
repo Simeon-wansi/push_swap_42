@@ -1,4 +1,4 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   rotate_cmd.c                                       :+:      :+:    :+:   */
@@ -6,16 +6,16 @@
 /*   By: sngantch <sngantch@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 02:15:50 by sngantch          #+#    #+#             */
-/*   Updated: 2025/03/06 11:20:00 by sngantch         ###   ########.fr       */
+/*   Updated: 2025/03/15 16:02:01 by sngantch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-static void	rotate(t_stack_node **stack)
+static void	rotate(t_stack **stack)
 {
-	t_stack_node	*last_node;
-	int				len;
+	t_stack	*last_node;
+	int		len;
 
 	len = stack_len(*stack);
 	if (stack == NULL || *stack == NULL || len == 1)
@@ -28,19 +28,19 @@ static void	rotate(t_stack_node **stack)
 	last_node->next->next = NULL;
 }
 
-void	ra(t_stack_node **a)
+void	ra(t_stack **a)
 {
 	rotate(a);
 	write(1, "ra\n", 3);
 }
 
-void	rb(t_stack_node **b)
+void	rb(t_stack **b)
 {
 	rotate(b);
 	write(1, "rb\n", 3);
 }
 
-void	rr(t_stack_node **a, t_stack_node **b)
+void	rr(t_stack **a, t_stack **b)
 {
 	rotate(a);
 	rotate(b);

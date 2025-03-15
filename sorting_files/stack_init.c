@@ -6,11 +6,11 @@
 /*   By: sngantch <sngantch@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 00:20:32 by sngantch          #+#    #+#             */
-/*   Updated: 2025/03/13 17:32:53 by sngantch         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:43:10 by sngantch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static long	ft_atol(const char *str)
 {
@@ -39,13 +39,7 @@ static long	ft_atol(const char *str)
 	return (num * sign);
 }
 
-/* Create a stack with the command line values 
-check are embeded in thee creation itself
-Duplicates values
-Over | underflow
-syntax errors*/
-
-void	stack_init(t_stack_node **a, char **av, bool flag_ac_2)
+void	stack_init(t_stack **a, char **av, bool flag_ac_2)
 {
 	long	nbr;
 	int		i;

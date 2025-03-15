@@ -6,14 +6,14 @@
 /*   By: sngantch <sngantch@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 02:35:14 by sngantch          #+#    #+#             */
-/*   Updated: 2025/03/13 18:21:27 by sngantch         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:43:16 by sngantch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 // check if the stack is sorted
-bool	stack_sorted(t_stack_node *stack)
+bool	stack_sorted(t_stack *stack)
 {
 	if (stack == NULL)
 		return (1);
@@ -26,10 +26,10 @@ bool	stack_sorted(t_stack_node *stack)
 	return (true);
 }
 
-static t_stack_node	*find_highest(t_stack_node *stack)
+static t_stack	*find_highest(t_stack *stack)
 {
-	int				highest;
-	t_stack_node	*highest_node;
+	int		highest;
+	t_stack	*highest_node;
 
 	if (stack == NULL)
 		return (NULL);
@@ -46,14 +46,9 @@ static t_stack_node	*find_highest(t_stack_node *stack)
 	return (highest_node);
 }
 
-/* When I have 3 nodes to sort 
-if the 1st is the biggest , ra (biggest to the bottom)
-if the 2nd is the biggest , rra (biggest to the bottom)
-Now if I have forcefully the biggest at the bottom so i just check 1 and 2*/
-
-void	three_sort(t_stack_node **a)
+void	three_sort(t_stack **a)
 {
-	t_stack_node	*highest_node;
+	t_stack	*highest_node;
 
 	highest_node = find_highest(*a);
 	if (*a == highest_node)
@@ -64,7 +59,7 @@ void	three_sort(t_stack_node **a)
 		sa(a);
 }
 
-void	handle_five(t_stack_node **a, t_stack_node **b)
+void	handle_five(t_stack **a, t_stack **b)
 {
 	while (stack_len(*a) > 3)
 	{

@@ -6,13 +6,13 @@
 /*   By: sngantch <sngantch@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 01:42:52 by sngantch          #+#    #+#             */
-/*   Updated: 2025/03/06 11:19:26 by sngantch         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:42:50 by sngantch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-t_stack_node	*find_last_node(t_stack_node *head)
+t_stack	*find_last_node(t_stack *head)
 {
 	if (head == NULL)
 		return (NULL);
@@ -21,14 +21,14 @@ t_stack_node	*find_last_node(t_stack_node *head)
 	return (head);
 }
 
-void	append_node(t_stack_node **stack, int nbr)
+void	append_node(t_stack **stack, int nbr)
 {
-	t_stack_node	*node;
-	t_stack_node	*last_node;
+	t_stack	*node;
+	t_stack	*last_node;
 
 	if (stack == NULL)
 		return ;
-	node = malloc(sizeof(t_stack_node));
+	node = malloc(sizeof(t_stack));
 	if (node == NULL)
 		return ;
 	node->next = NULL;
@@ -46,11 +46,10 @@ void	append_node(t_stack_node **stack, int nbr)
 	}
 }
 
-/*Find the smallest value*/
-t_stack_node	*find_smallest(t_stack_node *stack)
+t_stack	*find_smallest(t_stack *stack)
 {
-	long			smallest;
-	t_stack_node	*smallest_node;
+	long	smallest;
+	t_stack	*smallest_node;
 
 	if (stack == NULL)
 		return (NULL);
@@ -67,8 +66,7 @@ t_stack_node	*find_smallest(t_stack_node *stack)
 	return (smallest_node);
 }
 
-/* Find rthe cheapest node*/
-t_stack_node	*return_cheapest(t_stack_node *stack)
+t_stack	*return_cheapest(t_stack *stack)
 {
 	if (stack == NULL)
 		return (NULL);
@@ -81,7 +79,7 @@ t_stack_node	*return_cheapest(t_stack_node *stack)
 	return (NULL);
 }
 
-int	stack_len(t_stack_node *stack)
+int	stack_len(t_stack *stack)
 {
 	int	count;
 

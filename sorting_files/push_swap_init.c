@@ -6,13 +6,13 @@
 /*   By: sngantch <sngantch@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 05:11:51 by sngantch          #+#    #+#             */
-/*   Updated: 2025/03/13 20:31:26 by sngantch         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:54:24 by sngantch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-void	set_current_position(t_stack_node *stack)
+void	set_current_position(t_stack *stack)
 {
 	int	i;
 	int	centerline;
@@ -33,17 +33,11 @@ void	set_current_position(t_stack_node *stack)
 	}
 }
 
-/* the best match is :
- the smallest value the biggest value
- if no node is bigger , best_match is the smallest node
- 
- TLDR 
- With this functions evry node in b get it's target in a */
-static void	set_target_node(t_stack_node *a, t_stack_node *b)
+static void	set_target_node(t_stack *a, t_stack *b)
 {
-	t_stack_node	*current_a;
-	t_stack_node	*target_node;
-	long			best_match_index;
+	t_stack	*current_a;
+	t_stack	*target_node;
+	long	best_match_index;
 
 	while (b)
 	{
@@ -67,7 +61,7 @@ static void	set_target_node(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-void	set_price(t_stack_node *a, t_stack_node *b)
+void	set_price(t_stack *a, t_stack *b)
 {
 	int	len_a;
 	int	len_b;
@@ -89,10 +83,10 @@ void	set_price(t_stack_node *a, t_stack_node *b)
 
 /* Flag the cheapest node in the current statck confid*/
 
-void	set_cheapest(t_stack_node *b)
+void	set_cheapest(t_stack *b)
 {
-	long			best_match_value;
-	t_stack_node	*best_match_node;
+	long	best_match_value;
+	t_stack	*best_match_node;
 
 	if (b == NULL)
 		return ;
@@ -109,13 +103,7 @@ void	set_cheapest(t_stack_node *b)
 	best_match_node->cheapeast = true;
 }
 
-/* All necessary value to make push 
-relatives positions
-target node , the b node to merge 
-price for every config
-cheapest in the current config*/
-
-void	init_nodes(t_stack_node *a, t_stack_node *b)
+void	init_nodes(t_stack *a, t_stack *b)
 {
 	set_current_position(a);
 	set_current_position(b);
